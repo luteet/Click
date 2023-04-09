@@ -73,7 +73,7 @@ videoStart.forEach(videoStart => {
 			}
 	
 			
-		},videoStart.duration*1000-175);
+		},videoStart.duration*1000);
 		
 	})
 
@@ -355,10 +355,6 @@ function draw(arg) {
 		
 	}
 }
-
-setTimeout(() => {
-	//draw();
-}, 50);
 
 
 const canvasLine = document.querySelectorAll('.about__item--number canvas');
