@@ -78,6 +78,8 @@
 	&__link {
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
+
 		position: absolute;
 		right: 50%; top: auto;
 		transform: translate(50%,0);

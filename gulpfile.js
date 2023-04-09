@@ -108,10 +108,28 @@ function htmlCompilation() {
 	.pipe(browserSync.stream())
 }
 
+function htmlCompilationUA() {
+	return src(['app/ua/*.html'])
+	.pipe(include())
+	.pipe(beautify.html({ indent_size: 1, indent_char: "	" }))
+	.pipe(dest('dist/ua'))
+	.pipe(browserSync.stream())
+}
+
+function htmlCompilationEN() {
+	return src(['app/en/*.html'])
+	.pipe(include())
+	.pipe(beautify.html({ indent_size: 1, indent_char: "	" }))
+	.pipe(dest('dist/en'))
+	.pipe(browserSync.stream())
+}
+
 function htmlComponents() {
 	return src('app/html/**/_*.html')
 	.pipe(include())
 	.pipe(htmlCompilation())
+	.pipe(htmlCompilationUA())
+	.pipe(htmlCompilationEN())
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- </HTML> -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -233,6 +251,8 @@ function watching() {
 	watch(['app/audio/*'], audio);
 	watch(['app/img/sprites.svg'], sprites);
 	watch(['app/*.html'], htmlCompilation);
+	watch(['app/ua/*.html'], htmlCompilationUA);
+	watch(['app/en/*.html'], htmlCompilationEN);
 	watch(['app/html/**/_*.html'], htmlComponents);
 }
 
@@ -251,6 +271,8 @@ exports.ttf2woff2Convert = ttf2woff2Convert;
 exports.fonts = fonts;
 exports.htmlComponents = htmlComponents;
 exports.htmlCompilation = htmlCompilation;
+exports.htmlCompilationUA = htmlCompilationUA;
+exports.htmlCompilationEN = htmlCompilationEN;
 exports.createFolder = createFolder;
 exports.delFolder = delFolder;
 exports.createZip = createZip;
