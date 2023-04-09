@@ -1,0 +1,17 @@
+@import 'mixin';
+@import 'libs';
+@import 'null';
+@import 'vars';
+@import 'global';
+@import 'font';
+//@import 'popup';
+
+@import 'main-sections/header';
+
+
+@import 'pages/index/hero';
+
+@import 'pages/about/main';
+
+
+@import 'main-sections/footer';

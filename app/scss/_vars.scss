@@ -1,0 +1,48 @@
+
+@use 'sass:math';
+
+$container: 700;
+
+:root {
+	--title-font: 'Gilroy', sans-serif;
+	--main-font: 'Gilroy', sans-serif;
+	
+	--primary-color-1: #6B56DF;
+	--primary-color-2: #205CB5;
+	--primary-color-3: #E25E5B;
+
+	--white: #FFF;
+	--black: #000;
+	--dark: #0F1F33;
+	--gray: #969696;
+
+	--container-padding: 18px;
+}
+
+@font-face {
+	@include font-include('Gilroy', 400, swap, normal, 'Gilroy-Regular');
+}
+
+@font-face {
+	@include font-include('Gilroy', 500, swap, normal, 'Gilroy-Medium');
+}
+
+@font-face {
+	@include font-include('Gilroy', 800, swap, normal, 'Gilroy-Extrabold');
+}
+
+@font-face {
+	@include font-include('Inter', 500, swap, normal, 'Inter-Medium');
+}
+
+@font-face {
+	@include font-include('Inter', 600, swap, normal, 'Inter-SemiBold');
+}
+
+@font-face {
+	@include font-include('Inter', 900, swap, normal, 'Inter-Black');
+}
+
+@font-face {
+	@include font-include('Montserrat', 400, swap, normal, 'Montserrat-Regular');
+}

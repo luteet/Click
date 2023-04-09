@@ -1,0 +1,97 @@
+@use 'sass:math';
+
+html, body {
+	font-size: 16px;
+	min-height: 100%;
+	min-width: 320px;
+}
+
+body {
+	font-family: var(--main-font);
+	
+	font-weight: 400;
+	line-height: 150%;
+
+	display: flex;
+	flex-direction: column;
+
+	//padding-right: var(--popup-padding);
+
+	&._mob-menu-active {
+		overflow: hidden;
+	}
+
+	&._popup-active {
+		overflow: hidden;
+	}
+	
+}
+
+section {
+	position: relative;
+	z-index: 2;
+}
+
+.wrapper {
+
+	display: flex;
+	flex-direction: column;
+}
+
+.main {
+	overflow: hidden;
+
+	position: relative;
+}
+
+.container {
+	padding-left: var(--container-padding);
+	padding-right: var(--container-padding);
+	
+	@media (min-width: #{$container}px) {
+		padding-left: max(var(--container-padding), calc(50% - #{math.div($container, 2)}px));
+		padding-right: max(var(--container-padding), calc(50% - #{math.div($container, 2)}px));
+	}
+}
+
+.section-padding {
+	padding-top: 75px;
+	padding-bottom: 75px;
+
+	@include _768 {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+
+	@include _992 {
+		padding-top: 150px;
+		padding-bottom: 150px;
+	}
+
+}
+
+.btn {
+	display: inline-block;
+	text-align: center;
+	
+	padding: 7px 15px;
+
+	background: var(--accent);
+	color: var(--white);
+
+	border-radius: 5px;
+
+	transition: color .2s ease-in-out, background .2s ease-in-out;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px; height: 1px;
+	margin: -1px; padding: 0;
+	border: 0;
+	
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
