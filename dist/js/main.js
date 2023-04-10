@@ -4,6 +4,43 @@ const
 	html = document.querySelector('html');
 
 
+// =-=-=-=-=-=-=-=-=-=- <click events> -=-=-=-=-=-=-=-=-=-=-
+
+body.addEventListener('click', function (event) {
+
+	function $(elem) {
+		return event.target.closest(elem)
+	}
+
+	// =-=-=-=-=-=-=-=-=-=- <open menu in header> -=-=-=-=-=-=-=-=-=-=-
+
+	const langTarget = $('.lang__target');
+	if(langTarget) {
+
+		const lang = langTarget.closest('.lang');
+		if(lang.classList.contains('_active')) {
+			lang.classList.remove('_active');
+		} else {
+			lang.classList.add('_active');
+		}
+
+	} else if(!event.target.closest('.lang')) {
+		const lang = document.querySelectorAll('.lang');
+		lang.forEach(lang => {
+			lang.classList.remove('_active')
+		})
+	}
+
+	// =-=-=-=-=-=-=-=-=-=- </open menu in header> -=-=-=-=-=-=-=-=-=-=-
+
+	
+	
+
+})
+
+// =-=-=-=-=-=-=-=-=-=- </click events> -=-=-=-=-=-=-=-=-=-=-
+
+
 // =-=-=-=-=-=-=-=-=-=-=-=- <resize> -=-=-=-=-=-=-=-=-=-=-=-=
 
 const video = document.querySelectorAll('.video');
@@ -101,7 +138,7 @@ function resize() {
 		}
 	);
 
-	resizeCheckFunc(992,
+	resizeCheckFunc(1024,
 		function () {  // screen >
 
 			Array.from(videoArray).forEach(videoElement => {
