@@ -112,6 +112,8 @@ function resizeCheckFunc(size, minWidth, maxWidth) {
 	}
 }
 
+let resizedCheck = false;
+
 function resize() {
 
 	windowSize = window.innerWidth;
@@ -135,6 +137,8 @@ function resize() {
 
 			startVideo();
 
+			
+
 		}
 	);
 
@@ -150,16 +154,20 @@ function resize() {
 		},
 		function () {  // screen <
 
-			Array.from(videoArray).forEach(videoElement => {
-				videoElement['video'].setAttribute('src', videoElement['tab_src'])
-			})
+			if(windowSize >= 550) {
+				Array.from(videoArray).forEach(videoElement => {
+					videoElement['video'].setAttribute('src', videoElement['tab_src'])
+				})
+			} else {
+				Array.from(videoArray).forEach(videoElement => {
+					videoElement['video'].setAttribute('src', videoElement['mob_src'])
+				})
+			}
 
 			startVideo();
 
 		}
 	);
-
-	
 
 }
 

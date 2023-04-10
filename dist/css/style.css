@@ -476,7 +476,7 @@ section {
     width: 100%;
     min-height: 386px;
     position: relative;
-    background: linear-gradient(180deg,#9388E5 0,#6E5ED8 100%)
+    background: linear-gradient(180deg,#8477df 0,#695ad5 100%)
 }
 
 .hero__video--wrapper {
@@ -1078,7 +1078,8 @@ section {
     }
 
     .hero__video {
-        min-height: 486px
+        min-height: 486px;
+        background: linear-gradient(180deg,#8d87f1 0,#6b66ee 100%)
     }
 
     .hero__video--element {
