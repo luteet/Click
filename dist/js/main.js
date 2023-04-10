@@ -1,45 +1,7 @@
 
 const 
 	body = document.querySelector('body'),
-	html = document.querySelector('html'),
-	menu = document.querySelectorAll('.header__burger, .header__nav, body'),
-	burger = document.querySelector('.header__burger'),
-	header = document.querySelector('.header');
-
-
-// =-=-=-=-=-=-=-=-=-=- <click events> -=-=-=-=-=-=-=-=-=-=-
-
-body.addEventListener('click', function (event) {
-
-	function $(elem) {
-		return event.target.closest(elem)
-	}
-
-	// =-=-=-=-=-=-=-=-=-=- <open menu in header> -=-=-=-=-=-=-=-=-=-=-
-
-	if ($('.header__burger')) {
-		menu.forEach(element => {
-			element.classList.toggle('_mob-menu-active')
-		})
-	}
-
-	// =-=-=-=-=-=-=-=-=-=- </open menu in header> -=-=-=-=-=-=-=-=-=-=-
-
-	
-	
-
-})
-
-// =-=-=-=-=-=-=-=-=-=- </click events> -=-=-=-=-=-=-=-=-=-=-
-
-
-
-// =-=-=-=-=-=-=-=-=-=-=-=- <slider> -=-=-=-=-=-=-=-=-=-=-=-=
-
-
-
-// =-=-=-=-=-=-=-=-=-=-=-=- </slider> -=-=-=-=-=-=-=-=-=-=-=-=
-
+	html = document.querySelector('html');
 
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <resize> -=-=-=-=-=-=-=-=-=-=-=-=
@@ -53,17 +15,14 @@ const videoStart = document.querySelectorAll('.video._start'),
 let videoTimer;
 videoStart.forEach(videoStart => {
 
-	//function videoStartFunc() {  }
 	videoStart.addEventListener('canplaythrough', function () {
 		videoStart.play();
-		//videoStart.classList.add('_playing');
 		clearTimeout(videoTimer);
 		videoTimer = setTimeout(() => {
 			videoInfinite.forEach(videoInfinite => {
-				//videoInfinite.play();
 				videoInfinite.classList.remove('_loaded');
 			})
-			//videoStart.classList.remove('_loading');
+			
 			if(!videoStart.classList.contains('_loaded')) {
 				videoStart.classList.add('_loaded');
 				videoInfinite.forEach(videoInfinite => {
@@ -77,51 +36,29 @@ videoStart.forEach(videoStart => {
 		
 	})
 
-	
-	/* videoStart.addEventListener('ended', function () {
-		
-		
-	}) */
 })
 
 function startVideo() {
-	//console.log(videoStart)
 	videoStart.forEach(videoStart => {
-		//videoStart.classList.add('_loading');
 		videoStart.classList.remove('_loaded');
 		videoStart.load();
-		
 	})
 
 	videoInfinite.forEach(videoInfinite => {
 		videoInfinite.load();
-		
-		/* videoInfinite.addEventListener('canplaythrough', function () {
-			
-			
-		}) */
 	})
 }
 
 video.forEach((video, index) => {
-	//const source = video.querySelectorAll('source');
 
 	videoArray[index] = {
 		video: video,
 		mob_src: video.getAttribute('src'),
 		tab_src: video.dataset.tabletSrc,
 		desktop_src: video.dataset.desktopSrc,
-		//sources: [],
+		
 	}
 
-	/* source.forEach((source, sourceIndex) => {
-		videoArray[index]['sources'][sourceIndex] = {
-			source: source,
-			mob_src: source.getAttribute('src'),
-			tablet_src: source.dataset.tabletSrc,
-			desktop_src: source.dataset.desktopSrc,
-		}
-	}) */
 })
 
 let resizeCheck = {}, windowSize;
@@ -148,23 +85,15 @@ function resize() {
 
 			Array.from(videoArray).forEach(videoElement => {
 				videoElement['video'].setAttribute('src', videoElement['tab_src'])
-				/* Array.from(videoElement['sources']).forEach(source => {
-					source['source'].setAttribute('src', source['tablet_src']);
-				}) */
-
-				
-				startVideo();
-				
 			})
+
+			startVideo();
 
 		},
 		function () {  // screen <
 
 			Array.from(videoArray).forEach(videoElement => {
 				videoElement['video'].setAttribute('src', videoElement['mob_src'])
-				/* Array.from(videoElement['sources']).forEach(source => {
-					source['source'].setAttribute('src', source['mob_src']);
-				}) */
 			})
 
 			startVideo();
@@ -177,34 +106,18 @@ function resize() {
 
 			Array.from(videoArray).forEach(videoElement => {
 				videoElement['video'].setAttribute('src', videoElement['desktop_src']);
-				/* Array.from(videoElement['sources']).forEach(source => {
-					source['source'].setAttribute('src', source['mob_src']);
-				}) */
 			})
 
 			startVideo();
-
-			/* Array.from(videoArray).forEach(videoElement => {
-				Array.from(videoElement['sources']).forEach(source => {
-					source['source'].setAttribute('src', source['desktop_src']);
-				})
-			})
-
-			startVideo(); */
 
 		},
 		function () {  // screen <
 
 			Array.from(videoArray).forEach(videoElement => {
 				videoElement['video'].setAttribute('src', videoElement['tab_src'])
-				/* Array.from(videoElement['sources']).forEach(source => {
-					source['source'].setAttribute('src', source['tablet_src']);
-				}) */
-
-				
-				startVideo();
-				
 			})
+
+			startVideo();
 
 		}
 	);
@@ -233,6 +146,8 @@ imageBody.forEach(imageBody => {
 
 
 
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <dashed-line> -=-=-=-=-=-=-=-=-=-=-=-=
 
 var canvas = document.getElementById('canvas');
 
@@ -380,14 +295,4 @@ canvasLine.forEach(canvasLine => {
 	setInterval(canvasLineDraw,100)
 })
 
-
-/* 
-// =-=-=-=-=-=-=-=-=-=-=-=- <animation> -=-=-=-=-=-=-=-=-=-=-=-=
-
-AOS.init({
-	disable: "mobile",
-});
-
-// =-=-=-=-=-=-=-=-=-=-=-=- </animation> -=-=-=-=-=-=-=-=-=-=-=-=
-
-*/
+// =-=-=-=-=-=-=-=-=-=-=-=- </dashed-line> -=-=-=-=-=-=-=-=-=-=-=-=
