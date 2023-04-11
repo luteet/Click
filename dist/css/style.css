@@ -18,6 +18,10 @@ aside,details,footer,header,main,nav {
     position: relative
 }
 
+.about__get,.about__item--number::before,.about__logo,.btn,.footer,.get__mob,.get__mob--image,.header__nav--list li,.hero__content,.text-section h1,.txt-center {
+    text-align: center
+}
+
 hr {
     box-sizing: content-box;
     height: 0
@@ -172,10 +176,6 @@ input::-ms-clear {
     display: none
 }
 
-.get,.header,.header__nav--list,.hero__link,.lang__item,.lang__link,.wrapper,body {
-    display: flex
-}
-
 button {
     cursor: pointer
 }
@@ -265,6 +265,7 @@ body {
     font-family: var(--main-font);
     font-weight: 400;
     line-height: 150%;
+    display: flex;
     flex-direction: column
 }
 
@@ -278,6 +279,7 @@ section {
 }
 
 .wrapper {
+    display: flex;
     flex-direction: column
 }
 
@@ -293,7 +295,6 @@ section {
 
 .btn {
     display: inline-block;
-    text-align: center;
     padding: 7px 15px;
     background: var(--accent);
     color: var(--white);
@@ -323,16 +324,13 @@ section {
     font-size: 1.125rem
 }
 
-.txt-center {
-    text-align: center
-}
-
 .header {
     position: static;
     left: 0;
     top: 0;
     width: 100%;
     z-index: 99;
+    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center
@@ -386,22 +384,18 @@ section {
 }
 
 .header__nav--list {
+    display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     height: 100%
 }
 
-.header__nav--list li {
-    width: 100%;
-    text-align: center
-}
-
-.header__nav--list li a {
+.header__nav--list li,.header__nav--list li a {
     width: 100%
 }
 
-.header__burger,.lang__item:first-child .lang__link img {
+.header__burger,.lang__target img {
     width: 30px;
     height: 30px
 }
@@ -438,10 +432,6 @@ section {
     transition-property: transform,top,opacity,visibility,-webkit-transform
 }
 
-.hero__link,.lang__link {
-    transition: background .3s ease
-}
-
 .header__burger span:nth-child(1) {
     top: 0;
     -webkit-transform: translate3d(0,0,0);
@@ -456,7 +446,7 @@ section {
     visibility: visible
 }
 
-.header__burger._mob-menu-active span:nth-child(2),.hero__video--element._infinite {
+.header__burger._mob-menu-active span:nth-child(2),.hero__video--element._infinite,.lang__list {
     opacity: 0;
     visibility: hidden
 }
@@ -530,6 +520,7 @@ section {
 }
 
 .hero__link {
+    display: flex;
     align-items: center;
     justify-content: space-between;
     position: absolute;
@@ -539,6 +530,7 @@ section {
     transform: translate(50%,0);
     bottom: 25px;
     background: var(--white);
+    transition: background .3s ease;
     padding: 10px;
     font-family: Inter,sans-serif;
     font-weight: 600;
@@ -571,8 +563,11 @@ section {
     padding-top: 32px;
     position: relative;
     z-index: 2;
-    background: var(--white);
-    text-align: center
+    background: var(--white)
+}
+
+.about__bg,.about__bg--vector-element,.about__block:nth-child(2) .about__bg--image,.lang__list {
+    position: absolute
 }
 
 .hero__title {
@@ -591,18 +586,43 @@ section {
     margin: 0 auto
 }
 
-.lang__item {
-    justify-content: flex-end
+.lang__target {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    background: rgba(0,0,0,0);
+    padding: 9px
+}
+
+.lang__list {
+    left: 0;
+    top: 100%;
+    width: 100%;
+    transition: opacity .3s ease,visibility .3s ease,-webkit-transform .3s ease;
+    transition: opacity .3s ease,visibility .3s ease,transform .3s ease;
+    transition: opacity .3s ease,visibility .3s ease,transform .3s ease,-webkit-transform .3s ease;
+    -webkit-transform: translate3d(0,15px,0);
+    transform: translate3d(0,15px,0)
+}
+
+.lang._active .lang__list {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0)
 }
 
 .lang__link {
+    display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     font-weight: 600;
     font-size: .875rem;
     color: var(--white);
     padding: 8px 5px;
-    border-radius: 100px
+    border-radius: 100px;
+    transition: background .3s ease
 }
 
 .lang__link img {
@@ -620,6 +640,7 @@ section {
 }
 
 .get {
+    display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
@@ -631,7 +652,6 @@ section {
 }
 
 .get__mob {
-    text-align: center;
     flex: 1 1 100%;
     padding-top: 10px
 }
@@ -643,10 +663,6 @@ section {
     line-height: 125%
 }
 
-.get__mob--image {
-    text-align: center
-}
-
 .get__mob--text {
     padding-top: 40px;
     font-size: .75rem;
@@ -655,7 +671,6 @@ section {
 }
 
 .about__bg {
-    position: absolute;
     left: 0;
     top: 0;
     width: 100%;
@@ -665,7 +680,6 @@ section {
 }
 
 .about__bg--vector-element {
-    position: absolute;
     border-radius: 50%
 }
 
@@ -780,10 +794,6 @@ section {
     opacity: .2
 }
 
-.about__block:nth-child(2) .about__bg--image {
-    position: absolute
-}
-
 .about__block:nth-child(2) .about__bg--image img {
     width: var(--tablet-size);
     height: var(--tablet-size)
@@ -831,10 +841,6 @@ section {
     right: 7%;
     top: 58%;
     opacity: .2
-}
-
-.about__logo {
-    text-align: center
 }
 
 .about__logo img {
@@ -919,7 +925,6 @@ section {
     top: 0;
     height: 70px;
     width: 40px;
-    text-align: center;
     font-size: 3.75rem;
     line-height: 125%;
     font-weight: 800;
@@ -981,10 +986,6 @@ section {
     color: var(--black)
 }
 
-.about__get {
-    text-align: center
-}
-
 .text-section {
     padding-top: 100px;
     padding-bottom: 50px;
@@ -993,7 +994,6 @@ section {
 }
 
 .text-section h1 {
-    text-align: center;
     font-weight: 800;
     line-height: 125%;
     font-size: 1.25rem
@@ -1072,7 +1072,6 @@ section {
 }
 
 .footer {
-    text-align: center;
     max-width: 500px;
     width: 100%;
     margin: 0 auto;
@@ -1648,7 +1647,11 @@ section {
         margin-top: -30px
     }
 
-    .lang__item:first-child .lang__link img {
+    .lang__target {
+        justify-content: space-between
+    }
+
+    .lang__target img {
         width: 33px;
         height: 33px
     }
