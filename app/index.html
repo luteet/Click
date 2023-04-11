@@ -1,4 +1,4 @@
-@@include("html/_header.html")
+@@include("html/_header-ua.html")
 
 <main class="main">
 	<section class="hero">
@@ -6,43 +6,41 @@
 			<div class="hero__video--wrapper">
 				<video width="250" height="250" src="video/mob_2.mov" data-tablet-src="video/tab_2.mov" data-desktop-src="video/desk_2.mov"
 				class="hero__video--element video _infinite" muted playsinline loop preload="none">
-					Скачать
-					<a href="video/desk_1.mov">видео.</a>
+					Завантажити
+					<a href="../video/desk_1.mov">відео.</a>
 				</video>
 				<video width="250" height="250" src="video/mob_1.mov" data-tablet-src="video/tab_1.mov" data-desktop-src="video/desk_1.mov"
 				class="hero__video--element video _start" muted playsinline preload="none">
-					Скачать
-					<a href="video/desk_1.mov">видео.</a>
+					Завантажити
+					<a href="video/desk_1.mov">відео.</a>
 				</video>
 			</div>
 			<a href="about.html" class="hero__link">
 				<svg width="21" height="19" viewBox="0 0 21 19">
-					<use xlink:href="img/sprites.svg#pointer"></use>
+					<use xlink:href="../img/sprites.svg#pointer"></use>
 				</svg>
-				Давай знакомиться
+				Давай знайомитися
 				<svg width="21" height="19" viewBox="0 0 21 19">
-					<use xlink:href="img/sprites.svg#pointer"></use>
+					<use xlink:href="../img/sprites.svg#pointer"></use>
 				</svg>
 			</a>
 			@@include("html/_lang.html", {
-				"path": '',
-				"target_img": 'ru', "target_text": 'Рус',
-				"link_1": 'ua/', "link_1_text": 'Укр', "link_1_img": 'ua',
-				"link_2": 'en/', "link_2_text": 'Eng', "link_2_img": 'en',
-				
+				"path": '../',
+				"target_img": 'ua', "target_text": 'Укр',
+				"link_1": '../en/', "link_1_text": 'Eng', "link_1_img": 'en',
 			})
 		</div>
 		<div class="hero__content container">
 			<h1 class="hero__title">
-				Привет! Меня зовут Click!
+				Вітаю! Мене звати Click!
 			</h1>
 			<div class="hero__text">
 				<p>
-					Я создан для того, чтобы ты мог найти самые крутые и выгодные варианты недвижимости, быстро продавать или сдавать ее в любой точке мира!  
+					Я створений для того, щоб ти міг знайти найкрутіші та найвигідніші варіанти нерухомості, швидко продавати або здавати її в будь-якій точці світу!
 				</p>
 			</div>
 			<div class="hero__get get">
-				<a href="#" class="get__link" aria-label="Скачать в App Store">
+				<a href="#" class="get__link" aria-label="Завантажити в App Store">
 					<svg width="160" height="46" viewBox="0 0 160 46" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="M159.111 40.8916C159.111 43.3548 157.074 45.3501 154.555 45.3501H5.45108C2.93292 45.3501 0.888916 43.3548 0.888916 40.8916V5.33646C0.888916 2.87439 2.93292 0.872131 5.45108 0.872131H154.554C157.074 0.872131 159.11 2.87439 159.11 5.33646L159.111 40.8916Z"
@@ -79,7 +77,7 @@
 							fill="white" />
 						<text fill="white" xml:space="preserve" style="white-space: pre" font-family="Montserrat, sans-serif"
 							font-size="12" letter-spacing="0px">
-							<tspan x="51" y="17.802">Скачать в</tspan>
+							<tspan x="51" y="17.802">Завантажити в</tspan>
 						</text>
 					</svg>
 				</a>
@@ -99,7 +97,7 @@
 						</picture>
 					</div>
 					<div class="get__phone--text">
-						Просто наведи телефон на QR код и скачай приложение
+						Просто наведи телефон на QR код і скачай додаток
 					</div>
 				</div>
 				<a href="#" class="get__link" aria-label="Доступно в Google Play">
@@ -160,7 +158,7 @@
 					</svg>
 				</a>
 				<div class="get__mob">
-					<h2 class="get__mob--title">Скорее кликай!</h2>
+					<h2 class="get__mob--title">Скоріше клікай!</h2>
 					<div class="get__mob--image">
 						<div class="get__mob--image-body">
 							<picture>
@@ -171,7 +169,7 @@
 					</div>
 					<!-- <div class="get__mob--text">
 						<p>
-							Правила сервиса Click Realty, Общие условия и порядок предоставления услуг Click Realty
+							Правила сервісу Click Realty, Загальні умови та порядок надання послуг Click Realty
 						</p>
 					</div> -->
 				</div>
@@ -180,4 +178,4 @@
 	</section>
 </main>
 
-@@include("html/_footer.html")
+@@include("html/_footer-ua.html")
