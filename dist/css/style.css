@@ -18,6 +18,10 @@ aside,details,footer,header,main,nav {
     position: relative
 }
 
+.about__get,.about__item--number::before,.about__logo,.btn,.footer,.get__mob,.get__mob--image,.header__nav--list li,.hero__content,.text-section h1,.txt-center {
+    text-align: center
+}
+
 hr {
     box-sizing: content-box;
     height: 0
@@ -291,7 +295,6 @@ section {
 
 .btn {
     display: inline-block;
-    text-align: center;
     padding: 7px 15px;
     background: var(--accent);
     color: var(--white);
@@ -319,10 +322,6 @@ section {
 
 .title {
     font-size: 1.125rem
-}
-
-.txt-center {
-    text-align: center
 }
 
 .header {
@@ -392,12 +391,7 @@ section {
     height: 100%
 }
 
-.header__nav--list li {
-    width: 100%;
-    text-align: center
-}
-
-.header__nav--list li a {
+.header__nav--list li,.header__nav--list li a {
     width: 100%
 }
 
@@ -449,9 +443,9 @@ section {
     visibility: visible
 }
 
-.header__burger._mob-menu-active span:nth-child(2),.hero__video--element._infinite,.lang__list {
-    opacity: 0;
-    visibility: hidden
+.header__burger._mob-menu-active span:nth-child(2),.hero__video--element._infinite {
+    visibility: hidden;
+    opacity: 0
 }
 
 .header__burger span:nth-child(3) {
@@ -566,12 +560,7 @@ section {
     padding-top: 32px;
     position: relative;
     z-index: 2;
-    background: var(--white);
-    text-align: center
-}
-
-.about__bg,.about__bg--vector-element,.about__block:nth-child(2) .about__bg--image,.lang__list {
-    position: absolute
+    background: var(--white)
 }
 
 .hero__title {
@@ -593,16 +582,16 @@ section {
 .lang__link,.lang__target {
     align-items: center;
     font-weight: 600;
+    font-size: .875rem;
     display: flex;
     font-family: Inter,sans-serif
 }
 
 .lang__target {
     justify-content: space-between;
-    width: 72px;
+    width: 75px;
     background: rgba(0,0,0,0);
     padding: 4px;
-    font-size: .875rem;
     color: transparent;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -621,12 +610,15 @@ section {
 }
 
 .lang__list {
+    position: absolute;
     left: 0;
     top: 100%;
     width: 100%;
     transition: opacity .3s ease,visibility .3s ease,-webkit-transform .3s ease;
     transition: opacity .3s ease,visibility .3s ease,transform .3s ease;
     transition: opacity .3s ease,visibility .3s ease,transform .3s ease,-webkit-transform .3s ease;
+    opacity: 0;
+    visibility: hidden;
     -webkit-transform: translate3d(0,15px,0);
     transform: translate3d(0,15px,0)
 }
@@ -639,16 +631,18 @@ section {
 }
 
 .lang__item {
-    display: flex;
-    justify-content: flex-end
+    display: flex
 }
 
 .lang__link {
     justify-content: center;
-    font-size: .875rem;
-    padding: 8px 5px;
+    padding: 8px 6.9px;
     border-radius: 100px;
     transition: background .3s ease
+}
+
+.about__item--content,.get {
+    padding-top: 15px
 }
 
 .lang__link img {
@@ -669,8 +663,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: column;
-    padding-top: 15px
+    flex-direction: column
 }
 
 .about__block:nth-child(1) .about__bg--vector-element:nth-child(13),.about__block:nth-child(1) .about__bg--vector-element:nth-child(2),.about__block:nth-child(1) .about__bg--vector-element:nth-child(3),.about__block:nth-child(1) .about__bg--vector-element:nth-child(6),.about__block:nth-child(1) .about__bg--vector-element:nth-child(7),.about__block:nth-child(1) .about__bg--vector-element:nth-child(8),.about__block:nth-child(2) .about__bg--image,.about__block:nth-child(2) .about__bg--vector-element:nth-child(1),.about__block:nth-child(2) .about__bg--vector-element:nth-child(2),.about__block:nth-child(3) .about__bg--vector-element:nth-child(1),.about__block:nth-child(3) .about__bg--vector-element:nth-child(4),.about__block:nth-child(3) .about__bg--vector-element:nth-child(6),.get__phone {
@@ -678,7 +671,6 @@ section {
 }
 
 .get__mob {
-    text-align: center;
     flex: 1 1 100%;
     padding-top: 10px
 }
@@ -690,10 +682,6 @@ section {
     line-height: 125%
 }
 
-.get__mob--image {
-    text-align: center
-}
-
 .get__mob--text {
     padding-top: 40px;
     font-size: .75rem;
@@ -702,6 +690,7 @@ section {
 }
 
 .about__bg {
+    position: absolute;
     left: 0;
     top: 0;
     width: 100%;
@@ -711,6 +700,7 @@ section {
 }
 
 .about__bg--vector-element {
+    position: absolute;
     border-radius: 50%
 }
 
@@ -825,6 +815,10 @@ section {
     opacity: .2
 }
 
+.about__block:nth-child(2) .about__bg--image {
+    position: absolute
+}
+
 .about__block:nth-child(2) .about__bg--image img {
     width: var(--tablet-size);
     height: var(--tablet-size)
@@ -872,10 +866,6 @@ section {
     right: 7%;
     top: 58%;
     opacity: .2
-}
-
-.about__logo {
-    text-align: center
 }
 
 .about__logo img {
@@ -960,7 +950,6 @@ section {
     top: 0;
     height: 70px;
     width: 40px;
-    text-align: center;
     font-size: 3.75rem;
     line-height: 125%;
     font-weight: 800;
@@ -996,10 +985,6 @@ section {
     object-fit: contain
 }
 
-.about__item--content {
-    padding-top: 15px
-}
-
 .about__item--content h2 {
     font-weight: 800;
     line-height: 125%;
@@ -1007,23 +992,19 @@ section {
 }
 
 .about__item--content p,.about__item--content ul li {
-    font-weight: 500;
+    color: var(--gray);
     line-height: 121.428571%;
-    font-size: .875rem
+    font-weight: 500
 }
 
 .about__item--content p {
     padding-top: 10px;
-    color: var(--gray)
+    font-size: .875rem
 }
 
 .about__item--content ul li {
     padding: 10px 0;
-    color: var(--black)
-}
-
-.about__get {
-    text-align: center
+    font-size: .875rem
 }
 
 .text-section {
@@ -1034,7 +1015,6 @@ section {
 }
 
 .text-section h1 {
-    text-align: center;
     font-weight: 800;
     line-height: 125%;
     font-size: 1.25rem
@@ -1113,7 +1093,6 @@ section {
 }
 
 .footer {
-    text-align: center;
     max-width: 500px;
     width: 100%;
     margin: 0 auto;
@@ -1701,6 +1680,10 @@ section {
     .lang__target img {
         width: 33px;
         height: 33px
+    }
+
+    .lang__item {
+        justify-content: flex-end
     }
 
     .lang__link img {
