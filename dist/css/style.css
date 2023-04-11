@@ -405,6 +405,10 @@ section {
     display: block
 }
 
+.hero__video--element._hidden,.hero__video--element._start._loaded {
+    display: none
+}
+
 .header__burger::before {
     content: "";
     position: absolute;
@@ -493,16 +497,8 @@ section {
     -webkit-mask: linear-gradient(90deg,rgba(255,255,255,0) 0,#000 10%,#000 90%,rgba(255,255,255,0) 100%)
 }
 
-.hero__video--element._hidden {
-    display: none
-}
-
 .hero__video--start {
     width: 50%
-}
-
-.hero__video--element._start._loaded {
-    display: none
 }
 
 .hero__video--element._infinite._loaded {
@@ -581,17 +577,17 @@ section {
 
 .lang__link,.lang__target {
     align-items: center;
-    font-weight: 600;
-    font-size: .875rem;
+    font-size: 0;
     display: flex;
     font-family: Inter,sans-serif
 }
 
 .lang__target {
     justify-content: space-between;
-    width: 75px;
+    width: 30px;
     background: rgba(0,0,0,0);
-    padding: 4px;
+    padding: 4px 0;
+    font-weight: 600;
     color: transparent;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -599,14 +595,13 @@ section {
     transition: color .3s ease
 }
 
-.lang._active .lang__target,.lang__link {
-    color: var(--white)
-}
-
 .lang__target img {
     width: 30px;
-    height: 30px;
-    margin-right: 8px
+    height: 30px
+}
+
+.lang._active .lang__target {
+    color: var(--white)
 }
 
 .lang__list {
@@ -631,12 +626,14 @@ section {
 }
 
 .lang__item {
-    display: flex
+    display: flex;
+    justify-content: center
 }
 
 .lang__link {
     justify-content: center;
-    padding: 8px 6.9px;
+    font-weight: 600;
+    padding: 8px 0;
     border-radius: 100px;
     transition: background .3s ease
 }
@@ -647,8 +644,7 @@ section {
 
 .lang__link img {
     width: 24px;
-    height: 24px;
-    margin-right: 8px
+    height: 24px
 }
 
 .lang__link:not(._current):hover {
@@ -1127,7 +1123,11 @@ section {
 }
 
 @media (min-width:550px) {
-    .footer__link,.hero__link {
+    .lang__link img,.lang__target img {
+        margin-right: 8px
+    }
+
+    .footer__link,.hero__link,.lang__link,.lang__target {
         font-size: .875rem
     }
 
@@ -1143,6 +1143,20 @@ section {
     .hero__lang {
         right: 30px;
         top: 33px
+    }
+
+    .lang__target {
+        padding: 4px;
+        width: 75px
+    }
+
+    .lang__item {
+        justify-content: stretch
+    }
+
+    .lang__link {
+        padding: 8px 6.9px;
+        color: var(--white)
     }
 
     .text-section td,.text-section th {
@@ -1676,13 +1690,13 @@ section {
         margin-top: -30px
     }
 
-    .lang__target {
-        width: 83px
-    }
-
     .lang__target img {
         width: 33px;
         height: 33px
+    }
+
+    .lang__target {
+        width: 83px
     }
 
     .lang__item {

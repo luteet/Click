@@ -209,18 +209,18 @@
 		align-items: center;
 		justify-content: space-between;
 
-		width: 75px;
-		@include _1024 {
-			width: 83px;
-			padding: 9px;
-		}
+		width: 30px;
 
 		background: transparent;
-		padding: 4px;
+		padding: 4px 0;
 
 		img {
 			width: 30px; height: 30px;
-			margin-right: 8px;
+			
+			@include _550 {
+				margin-right: 8px;
+			}
+
 			@include _1024 {
 				width: 33px; height: 33px;
 			}
@@ -228,13 +228,22 @@
 
 		font-family: "Inter", sans-serif;
 		font-weight: 600;
-		font-size: 0.875rem;
+		font-size: 0rem;
+		@include _550 {
+			font-size: 0.875rem;
+			padding: 4px;
+			width: 75px;
+		}
 		color: transparent;
 		user-select: none;
 
 		transition: color .3s ease;
+
+		
 		
 		@include _1024 {
+			width: 83px;
+			padding: 9px;
 			font-size: 1rem;
 		}
 	}
@@ -264,6 +273,12 @@
 
 	&__item {
 		display: flex;
+		justify-content: center;
+
+		@include _550 {
+			justify-content: stretch;
+		}
+		
 		@include _1024 {
 			justify-content: flex-end;
 		}
@@ -282,10 +297,17 @@
 
 		font-family: "Inter", sans-serif;
 		font-weight: 600;
-		font-size: 0.875rem;
-		color: var(--white);
+		font-size: 0rem;
 
-		padding: 8px 6.9px;
+		padding: 8px 0;
+
+		@include _550 {
+			padding: 8px 6.9px;
+			font-size: 0.875rem;
+			color: var(--white);
+		}
+
+		
 		@include _1024 {
 			padding: 9px;
 			font-size: 1rem;
@@ -294,7 +316,10 @@
 
 		& img {
 			width: 24px; height: 24px;
-			margin-right: 8px;
+			
+			@include _550 {
+				margin-right: 8px;
+			}
 			@include _1024 {
 				width: 24px; height: 24px;
 			}
