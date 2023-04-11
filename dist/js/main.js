@@ -51,25 +51,41 @@ const videoStart = document.querySelectorAll('.video._start'),
 
 let videoTimer;
 videoStart.forEach(videoStart => {
-
+	videoStart.classList.add('_loaded');
+	
 	videoStart.addEventListener('canplaythrough', function () {
 		videoStart.play();
-		clearTimeout(videoTimer);
-		videoTimer = setTimeout(() => {
-			videoInfinite.forEach(videoInfinite => {
-				videoInfinite.classList.remove('_loaded');
-			})
+		
+		setTimeout(() => {
+			//videoStart.classList.add('_loaded');
 			
-			if(!videoStart.classList.contains('_loaded')) {
-				videoStart.classList.add('_loaded');
+			if(videoStart.currentTime > 0) {
+				videoStart.classList.remove('_loaded');
+				clearTimeout(videoTimer);
+				videoTimer = setTimeout(() => {
+					videoInfinite.forEach(videoInfinite => {
+						videoInfinite.classList.remove('_loaded');
+					})
+					
+					if(!videoStart.classList.contains('_loaded')) {
+						videoStart.classList.add('_loaded');
+						videoInfinite.forEach(videoInfinite => {
+							videoInfinite.play();
+							videoInfinite.classList.add('_loaded');
+						})
+					}
+			
+					
+				},(videoStart.duration*1000) - 150);
+			} else {
+				//videoStart.classList.add('_loaded');
 				videoInfinite.forEach(videoInfinite => {
-					videoInfinite.play();
+					//videoInfinite.play();
 					videoInfinite.classList.add('_loaded');
 				})
 			}
-	
-			
-		},videoStart.duration*1000);
+		},150)
+		
 		
 	})
 
@@ -77,7 +93,7 @@ videoStart.forEach(videoStart => {
 
 function startVideo() {
 	videoStart.forEach(videoStart => {
-		videoStart.classList.remove('_loaded');
+		//videoStart.classList.remove('_loaded');
 		videoStart.load();
 	})
 

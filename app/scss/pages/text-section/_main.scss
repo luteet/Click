@@ -1,0 +1,117 @@
+.text-section {
+	padding-top: 100px;
+	padding-bottom: 50px;
+
+	font-size: 0.875rem;
+	line-height: 150%;
+
+	@include _1024 {
+		font-size: 1rem;
+		padding-bottom: 150px;
+	}
+
+	h1 {
+		text-align: center;
+		font-weight: 800;
+		line-height: 125%;
+		font-size: 1.25rem;
+		
+		@include _768 {
+			font-size: 2rem;
+		}
+	}
+
+	& > ul {
+		counter-reset: text_content_1;
+
+		& > li {
+			
+			counter-reset: text_content_2;
+
+			&:not(:first-child) {
+				padding-top: 70px;
+			}
+
+			& > ol {
+				
+				& > li {
+					
+					padding-top: 35px;
+					&::before {
+						counter-increment: text_content_2;
+						content: counter(text_content_1)"."counter(text_content_2)".";
+						margin-right: 20px;
+					}
+
+					& > ol {
+
+						counter-reset: ol_number;
+						padding-left: 15px;
+						
+						& > li {
+
+							//display: flex;
+							margin-top: 15px; padding-left: 20px;
+							position: relative;
+							
+							&::before {
+								position: absolute;
+								left: 0; top: 0;
+
+								counter-increment: ol_number;
+								content: counter(ol_number)")";
+								margin-right: 10px;
+							}
+							
+						}
+					}
+					
+				}
+			}
+		}
+	}
+
+	h2 {
+		font-weight: 800;
+		line-height: 125%;
+		font-size: 1.125rem;
+
+		display: flex;
+		
+		&::before {
+			counter-increment: text_content_1;
+			content: counter(text_content_1)".";
+
+			margin-right: 10px;
+		}
+		
+		@include _768 {
+			font-size: 1.5rem;
+		}
+	}
+
+	table {
+		width: 100%;
+		margin-top: 15px; margin-bottom: 10px;
+	}
+
+	table, th, td {
+		border: 1px solid var(--black);
+		border-collapse: collapse;
+
+		font-size: 0.75rem;
+		line-height: 150%;
+
+		@include _1024 {
+			font-size: 1rem;
+		}
+	}
+
+	th, td {
+		//min-width: 200px;
+		padding: 5px;
+		@include _550 {
+			padding: 15px;
+		}
+	}
+}
