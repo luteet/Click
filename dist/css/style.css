@@ -1007,6 +1007,10 @@ section {
     font-size: .875rem
 }
 
+.about__item--content ul li b,.footer__link {
+    color: var(--black)
+}
+
 .text-section {
     padding-top: 100px;
     padding-bottom: 50px;
@@ -1108,7 +1112,6 @@ section {
     text-decoration-thickness: .0625rem;
     -webkit-text-decoration-skip-ink: none;
     text-decoration-skip-ink: none;
-    color: var(--black);
     font-size: .75rem;
     font-weight: 600;
     line-height: 125%;
