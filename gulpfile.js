@@ -124,12 +124,21 @@ function htmlCompilationEN() {
 	.pipe(browserSync.stream())
 }
 
+function htmlCompilationRU() {
+	return src(['app/ru/*.html'])
+	.pipe(include())
+	.pipe(beautify.html({ indent_size: 1, indent_char: "	" }))
+	.pipe(dest('dist/ru'))
+	.pipe(browserSync.stream())
+}
+
 function htmlComponents() {
 	return src('app/html/**/_*.html')
 	.pipe(include())
 	.pipe(htmlCompilation())
 	.pipe(htmlCompilationUA())
 	.pipe(htmlCompilationEN())
+	.pipe(htmlCompilationRU())
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- </HTML> -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -253,6 +262,7 @@ function watching() {
 	watch(['app/*.html'], htmlCompilation);
 	watch(['app/ua/*.html'], htmlCompilationUA);
 	watch(['app/en/*.html'], htmlCompilationEN);
+	watch(['app/ru/*.html'], htmlCompilationRU);
 	watch(['app/html/**/_*.html'], htmlComponents);
 }
 
@@ -273,6 +283,7 @@ exports.htmlComponents = htmlComponents;
 exports.htmlCompilation = htmlCompilation;
 exports.htmlCompilationUA = htmlCompilationUA;
 exports.htmlCompilationEN = htmlCompilationEN;
+exports.htmlCompilationRU = htmlCompilationRU;
 exports.createFolder = createFolder;
 exports.delFolder = delFolder;
 exports.createZip = createZip;
