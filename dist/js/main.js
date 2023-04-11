@@ -68,10 +68,16 @@ videoStart.forEach(videoStart => {
 					})
 					
 					if(!videoStart.classList.contains('_loaded')) {
-						videoStart.classList.add('_loaded');
+						
 						videoInfinite.forEach(videoInfinite => {
-							videoInfinite.play();
+							videoInfinite.addEventListener('playing', function () {
+								setTimeout(() => {
+									videoStart.classList.add('_loaded');
+								},25)
+							})
 							videoInfinite.classList.add('_loaded');
+							videoInfinite.play();
+							
 						})
 					}
 			
